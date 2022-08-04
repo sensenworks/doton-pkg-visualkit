@@ -1,7 +1,7 @@
 {
     "name": "doton.pkg.visualkit",
     "version": "0.0.1",
-    "description": "Doton Visual Package",
+    "description": "Doton VisualKit Package",
     "namespace": "VisualKit",
     "doton":{
         "version":"0.0.2",
