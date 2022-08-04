@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%LABEL%</title>
+    <style>
+        :root, *{ 
+            --color-one: %CONSOLE_COLOR%;
+            --color-log: #8200BA;
+            --color-info: #525252;
+            --color-notice: #005DBA;
+            --color-warning: #918D01;
+            --color-error: #BA002B;
+            --color-success: #00BA60;
+            --color-fore: #FFF;
+            --color-back-lite: #333;
+            --color-back: #242424;
+            --color-back-high: #141414;
+            font-family: sans-serif, arial;
+        }
+        html,body{ 
+            height: 100%; 
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+        }
+
+        body{
+            color: var(--color-fore);
+            background-color: var(--color-back);
+            /* overflow: hidden; */
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative; */
+        }
+        
+        .sheet, .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sheet{
+            width: 100vw;
+            min-height: 100vh;
+            align-items: center;
+            display: flex;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: var(--color-back);
+            justify-content: flex-start;
+            /* overflow-x: hidden;
+            overflow-y: auto; */
+            /* min-height: 768px; */
+        }
+        .container{
+            max-width: 768px;
+            align-items: flex-start;
+            width: 100%;
+            margin: 2rem 0;
+        }
+        .title{
+            font-size: 14px;
+            letter-spacing: .3rem;
+            background-color: var(--color-one);
+            color: #fff;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+            letter-spacing: .1rem;
+            line-height: 1.2rem;
+            margin: 0 1rem;
+            text-transform: uppercase;
+        } 
+        .content{
+            font-size: 13px;
+            padding: 1rem 0;
+            margin: 0 1rem;
+            width: 100%;
+        } 
+        .powered{
+            padding-top: 1rem;
+            font-size: 10px;
+            letter-spacing: .1rem;
+            margin: 0 1rem;
+            /* line-height: 7px; */
+            width: 100%;
+        } 
+
+
+
+        .ui-badge{
+            padding: .3rem .5rem;
+            background-color: var(--color-fore);
+            color: var(--color-back);
+            font-size: 80%;
+            align-items: center;
+            border-radius: 2rem;
+            /* line-height: 12px; */
+            display: inline-flex;
+            margin: .2rem;
+        }
+        .ui-badge.badge-log{
+            color: #FFF;
+            background-color: var(--color-log);
+        }
+        .ui-badge.badge-notice{
+            color: #FFF;
+            background-color: var(--color-notice);
+        }
+        .ui-badge.badge-warning{
+            color: #FFF;
+            background-color: var(--color-warning);
+        }
+        .ui-badge.badge-error{
+            color: #FFF;
+            background-color: var(--color-error);
+        }
+        .ui-badge.badge-success{
+            color: #FFF;
+            background-color: var(--color-success);
+        }
+
+
+        .ui-headling{ 
+            font-weight: 900; 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .ui-headling.h1{ font-size: 32px; }
+        .ui-headling.h2{ font-size: 28px; }
+        .ui-headling.h3{ font-size: 24px; }
+        .ui-headling.h4{ font-size: 20px; }
+        .ui-headling.h5{ font-size: 16px; }
+
+
+
+        .ui-block{
+            border-radius: 1rem;
+            font-size: 13px;
+            padding: .5rem;
+            margin: 1rem 0;
+        }
+        .ui-block.block-lite{
+            background-color: var(--color-back-lite);
+        }
+        .ui-block.block-high{
+            background-color: var(--color-back-high);
+        }
+        .ui-block.block-ouline{
+            background-color: transparent;
+            border: 1px solid var(--color-back-high);
+        }
+        .ui-block .block-title{
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .2rem;
+            opacity: .5;
+            padding: .4rem;
+        }
+        .ui-block .block-content{
+            padding: .2rem 0;
+            font-size: inherit;
+        }
+
+
+        table{
+            width: 100%;
+        }
+
+        table, table *{
+            border: 0px solid;
+            border-collapse: collapse;
+        }
+
+        table thead tr th{
+            padding: .7rem;
+            text-align: left;
+            font-size: 16px;
+            color: var(--color-back);
+            background-color: var(--color-fore);
+        }
+/* 
+        table thead tr th:not( :nth-last-child() ){
+            width: 100%
+        } */
+/* 
+        table thead tr th:not( :nth-child( 1 ) ){
+            width: 100%
+        } */
+
+        table tbody tr td{
+            padding: 1rem;
+            text-align: left;
+            font-size: 13px;
+            transition: all 150ms ease-in-out;
+        }
+
+        table tbody tr:nth-child( 2n + 2) td{
+            background-color: var( --color-back-lite );
+        }
+
+        table tbody tr:hover td{
+            background-color: var( --color-one );
+        }
+
+
+
+        table.table-code{
+            margin: .5rem;
+            width: auto;
+        }
+
+        table.table-code thead tr th,
+        table.table-code tbody tr td
+        {
+            background-color: transparent;
+            padding: .3rem;
+            vertical-align: middle;
+        }
+
+        /* table.table-code tbody tr td {
+            opacity: .45;
+        } */
+        
+        table.table-code thead tr:nth-child(1) th,
+        table.table-code thead tr:nth-child(2) th
+        {
+            width:auto;
+        }
+        table.table-code thead tr:nth-child(3) th
+        {
+            width:100%;
+        }
+
+
+        .ui-text{
+            line-height: 80%;
+        }
+        .ui-text.text-translucent{
+            opacity: .45;
+        }
+
+        :not(pre) > code[class*="language-"], pre[class*="language-"]{
+            background-color: var(--color-back-high) !important;
+        }
+        
+    </style>
+
+    %ASSETS_CSS%
+    
+</head>
+<body class="prism line-numbers">
+
+    <div class="sheet">
+            
+        <div class="container">
+
+            <div class="title">%LABEL%</div>
+
+            <div class="content"> %CONTENT% </div>
+
+            <div class="powered">%POWERED%</div>
+            
+        </div>
+
+    </div>
+
+    %ASSETS_JS%
+    
+</body>
+</html>

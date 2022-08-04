@@ -1,0 +1,23 @@
+{
+    "name": "doton.pkg.visualkit",
+    "version": "0.0.1",
+    "description": "Doton Visual Package",
+    "namespace": "VisualKit",
+    "doton":{
+        "version":"0.0.2",
+        "type": "package",
+        "packages-bundle": null
+    },
+    "php-require":{
+        "version": "8.0",
+        "modules": [ "dom" ]
+    },
+    "autoload":{
+        "VisualKit\\" : "package/"
+    },
+    "dependencies":{
+        "sensenworks/doton-pkg-interface": "latest",
+        "sensenworks/doton-pkg-cli": "latest"
+    }
+
+}
