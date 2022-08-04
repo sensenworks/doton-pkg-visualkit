@@ -24,7 +24,7 @@ class Color{
 
         }
 
-        return '#777';
+        return '#333';
         
     }
     

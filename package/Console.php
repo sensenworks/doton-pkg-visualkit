@@ -15,7 +15,6 @@ namespace VisualKit;
 
 use DotonCli\Terminal as CliTerminal;
 use DotonCli\Console as CliConsole;
-use DotonCli\Terminal;
 use Doton\Core\Utilities\PackageAssetsTemplate;
 use Doton\Package;
 
